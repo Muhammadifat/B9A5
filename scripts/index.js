@@ -1,11 +1,23 @@
 const allBtn = document.getElementsByClassName('add-btn') ;
 
 let seat = 0 ;
+let seatLess = 8 ;
 
 for (const btn of allBtn) {
     btn.addEventListener("click", function(e) {
-        seat += 1;
-    setBackgroundColor(e.target.id, '#1DD100')
+        
+        if (seat < 4 && seatLess > 0) {
+            seat += 1;
+            seatLess -= 1 ;
+            document.getElementById('seat-count').innerText = seat ;
+            document.getElementById('seat-less').innerText = seatLess ;
+
+            if(seat === 4) {
+                disableAllBtn() ;
+            }
+        }
+    setBackgroundColor(e.target.id, '#1DD100') ;
+    
 
 
 // select ticket seat 
@@ -47,16 +59,16 @@ for (const btn of allBtn) {
         setInnerText('seat-count', seat);
 
 
-//         // seat less 
-// const seatLess = document.getElementById('seat-less') ;
-// const seatLessText = seatLess.innerText ;
-// const convertedSeatLess = parseInt(seatLessText) ;
-// document.getElementById('seat-less').i = convertedSeatLess - 1 ; 
-
-
-
 
     }) ;
+}
+
+
+function disableAllBtn() {
+    for (const btn of allBtn) {
+        btn.disabled = true;
+    }
+
 }
 
 

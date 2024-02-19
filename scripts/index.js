@@ -85,3 +85,11 @@ function setBackgroundColor(btnId, value) {
 function setInnerText(id, value) {
     document.getElementById(id).innerText = value ;
 }
+
+// modal part
+
+document.getElementById('next-btn').addEventListener('click', function() {
+    const modal =document.getElementById('modal');
+    // modal.classList.add('hidden');
+    modal.style.display = 'block';
+})
